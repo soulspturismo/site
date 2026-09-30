@@ -3,34 +3,154 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Soul SP · Turismo receptivo em São Paulo</title>
-<meta name="description" content="Walking tours pelo centro e pelos bairros, gastronomia paulistana, bate-volta para o interior e roteiros sob medida para o seu grupo.">
+<title>Soul SP · Walking tours e turismo receptivo em São Paulo</title>
+<meta name="description" content="Walking tours no centro histórico e nos bairros de São Paulo, gastronomia paulistana, bate-volta e roteiros sob medida com guia local. Reserve pelo WhatsApp.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#C8102E">
+<link rel="canonical" href="https://soulsp.com.br/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Google Search Console: cole aqui a meta tag de verificação, se escolher esse método -->
+
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Soul SP">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Soul SP · Turismo receptivo em São Paulo">
-<meta property="og:description" content="São Paulo conduzida por quem vive aqui. Walking tours, gastronomia, bate-volta e roteiros sob medida.">
-<meta property="og:image" content="https://soulsp.com.br/assets/fotos/hero-anhangabau.jpg">
 <meta property="og:url" content="https://soulsp.com.br/">
-<link rel="canonical" href="https://soulsp.com.br/">
+<meta property="og:title" content="Soul SP · São Paulo conduzida por quem vive aqui">
+<meta property="og:description" content="Walking tours, gastronomia paulistana, bate-volta e roteiros sob medida em São Paulo. Reserve pelo WhatsApp.">
+<meta property="og:image" content="https://soulsp.com.br/assets/fotos/og-soulsp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Centro de São Paulo visto do Vale do Anhangabaú">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soul SP · São Paulo conduzida por quem vive aqui">
+<meta name="twitter:description" content="Walking tours, gastronomia paulistana, bate-volta e roteiros sob medida em São Paulo.">
+<meta name="twitter:image" content="https://soulsp.com.br/assets/fotos/og-soulsp.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/fotos/hero-anhangabau.webp" type="image/webp">
 <link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Soul SP",
-  "description": "Turismo receptivo em São Paulo: walking tours, gastronomia, bate-volta e roteiros sob medida.",
-  "telephone": "+55 11 95340-3761",
-  "areaServed": "São Paulo",
-  "url": "https://soulsp.com.br/",
-  "image": "https://soulsp.com.br/assets/fotos/hero-anhangabau.jpg",
-  "sameAs": ["https://instagram.com/soulsp.tour"]
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "@id": "https://soulsp.com.br/#empresa",
+      "name": "Soul SP",
+      "url": "https://soulsp.com.br/",
+      "logo": "https://soulsp.com.br/assets/logo/png/soul-sp-logo-principal-carmim.png",
+      "image": "https://soulsp.com.br/assets/fotos/og-soulsp.jpg",
+      "description": "Turismo receptivo em São Paulo: walking tours, gastronomia, bate-volta e roteiros sob medida.",
+      "telephone": "+55-11-95340-3761",
+      "areaServed": {
+        "@type": "City",
+        "name": "São Paulo"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "availableLanguage": [
+        "Portuguese",
+        "English",
+        "Spanish"
+      ],
+      "sameAs": [
+        "https://instagram.com/soulsp.tour"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://soulsp.com.br/#site",
+      "url": "https://soulsp.com.br/",
+      "name": "Soul SP",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://soulsp.com.br/#empresa"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Roteiros Soul SP",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Walking tour Centro Histórico",
+            "description": "Caminhada pelas ruas que já foram o coração da economia do Brasil, com as histórias que quase ninguém conta.",
+            "provider": {
+              "@id": "https://soulsp.com.br/#empresa"
+            },
+            "touristType": "Turistas e moradores",
+            "image": "https://soulsp.com.br/assets/fotos/centro-historico-grupo.jpg"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "São Paulo em notas de café",
+            "description": "Como o café transformou São Paulo em metrópole. Lugares históricos, curiosidades e café especial no roteiro.",
+            "provider": {
+              "@id": "https://soulsp.com.br/#empresa"
+            },
+            "touristType": "Turistas e moradores",
+            "image": "https://soulsp.com.br/assets/fotos/altino-arantes.jpg"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Mercadão e o sanduíche de mortadela",
+            "description": "Cores, sabores e histórias do Mercado Municipal, com parada obrigatória no sanduíche mais paulistano que existe.",
+            "provider": {
+              "@id": "https://soulsp.com.br/#empresa"
+            },
+            "touristType": "Turistas e moradores",
+            "image": "https://soulsp.com.br/assets/fotos/mercadao-mortadela.jpg"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Walking tour Bom Retiro",
+            "description": "O bairro das imigrações, das confecções e da culinária coreana e judaica, percorrido a pé.",
+            "provider": {
+              "@id": "https://soulsp.com.br/#empresa"
+            },
+            "touristType": "Turistas e moradores"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Day use Rota do Vinho",
+            "description": "Um dia em São Roque entre vinícolas, adegas e a estrada que dá nome ao roteiro.",
+            "provider": {
+              "@id": "https://soulsp.com.br/#empresa"
+            },
+            "touristType": "Turistas e moradores"
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -62,7 +182,7 @@
   <section id="inicio" class="hero">
     <picture>
       <source srcset="assets/fotos/hero-anhangabau.webp" type="image/webp">
-      <img src="assets/fotos/hero-anhangabau.jpg" alt="Centro de São Paulo visto do Vale do Anhangabaú" class="hero-foto" fetchpriority="high">
+      <img src="assets/fotos/hero-anhangabau.jpg" width="1079" height="1216" alt="Centro de São Paulo visto do Vale do Anhangabaú" class="hero-foto" fetchpriority="high">
     </picture>
     <div class="hero-overlay"></div>
     <div class="container hero-conteudo">
@@ -105,7 +225,7 @@
         <div class="card-midia">
           <picture>
             <source srcset="assets/fotos/centro-historico-grupo.webp" type="image/webp">
-            <img src="assets/fotos/centro-historico-grupo.jpg" alt="Grupo com guia no centro histórico" loading="lazy">
+            <img src="assets/fotos/centro-historico-grupo.jpg" width="1400" height="1054" alt="Grupo com guia no centro histórico" loading="lazy">
           </picture>
           <span class="tag tag-centro">CENTRO HISTÓRICO</span>
         </div>
@@ -120,7 +240,7 @@
         <div class="card-midia">
           <picture>
             <source srcset="assets/fotos/altino-arantes.webp" type="image/webp">
-            <img src="assets/fotos/altino-arantes.jpg" alt="Edifício Altino Arantes visto de baixo" loading="lazy">
+            <img src="assets/fotos/altino-arantes.jpg" width="1000" height="1126" alt="Edifício Altino Arantes visto de baixo" loading="lazy">
           </picture>
           <span class="tag tag-centro">CENTRO HISTÓRICO</span>
         </div>
@@ -135,7 +255,7 @@
         <div class="card-midia">
           <picture>
             <source srcset="assets/fotos/mercadao-mortadela.webp" type="image/webp">
-            <img src="assets/fotos/mercadao-mortadela.jpg" alt="Sanduíche de mortadela no Mercadão" loading="lazy">
+            <img src="assets/fotos/mercadao-mortadela.jpg" width="1000" height="1129" alt="Sanduíche de mortadela no Mercadão" loading="lazy">
           </picture>
           <span class="tag tag-gastro">GASTRONOMIA</span>
         </div>
@@ -240,17 +360,17 @@
     <div class="grade-passos">
       <div class="passo passo-1">
         <div class="passo-num">01</div>
-        <div class="passo-titulo">Escolha o roteiro</div>
+        <h3 class="passo-titulo">Escolha o roteiro</h3>
         <p>Veja datas e vagas e reserve pelo WhatsApp. A confirmação chega com o voucher.</p>
       </div>
       <div class="passo passo-2">
         <div class="passo-num">02</div>
-        <div class="passo-titulo">Encontre o guia</div>
+        <h3 class="passo-titulo">Encontre o guia</h3>
         <p>Na véspera você recebe o ponto de encontro com mapa e o nome de quem vai conduzir.</p>
       </div>
       <div class="passo passo-3">
         <div class="passo-num">03</div>
-        <div class="passo-titulo">Siga o percurso</div>
+        <h3 class="passo-titulo">Siga o percurso</h3>
         <p>Roteiro a pé, no ritmo do grupo, com paradas para foto, café e perguntas.</p>
       </div>
     </div>
@@ -262,7 +382,7 @@
       <div class="guia-foto">
         <picture>
           <source srcset="assets/fotos/centro-historico-grupo.webp" type="image/webp">
-          <img src="assets/fotos/centro-historico-grupo.jpg" alt="Guia conduzindo grupo no centro de São Paulo" loading="lazy">
+          <img src="assets/fotos/centro-historico-grupo.jpg" width="1400" height="1054" alt="Guia conduzindo grupo no centro de São Paulo" loading="lazy">
         </picture>
       </div>
       <div class="guia-texto">
