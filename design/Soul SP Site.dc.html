@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #F1EDE6; }
+  html { scroll-behavior: smooth; }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #8F0B20; text-decoration: underline; }
+</style>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; color: #1A1613; background: #F1EDE6; min-height: 100vh;">
+
+  <header data-screen-label="Topo" style="position: sticky; top: 0; z-index: 10; background: #F1EDE6; border-bottom: 1px solid #DCD6CB;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <a href="#inicio" style="display: flex; align-items: center; gap: 12px; color: #1A1613; text-decoration: none;">
+        <svg width="36" height="36" viewBox="0 0 100 100" aria-label="Soul SP">
+          <path d="M50 6 C31 6 16 21 16 40 C16 63 50 94 50 94 C50 94 84 63 84 40 C84 21 69 6 50 6 Z" fill="#C8102E"></path>
+          <path d="M33 44 L50 27 L67 44 L58 44 L50 36 L42 44 Z" fill="#FFFFFF"></path>
+          <path d="M33 60 L50 43 L67 60 L58 60 L50 52 L42 60 Z" fill="#FFFFFF" opacity="0.45"></path>
+        </svg>
+        <span style="font-size: 22px; font-weight: 900; letter-spacing: -0.035em; white-space: nowrap;">SOUL <span style="color: #C8102E;">SP</span></span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; font-size: 15px; font-weight: 600;">
+        <a href="#roteiros" style="color: #1A1613;">Roteiros</a>
+        <a href="#sob-medida" style="color: #1A1613;">Sob medida</a>
+        <a href="#como-funciona" style="color: #1A1613;">Como funciona</a>
+        <a href="#contato" style="color: #1A1613;">Contato</a>
+        <a href="https://wa.me/5511953403761" style="background: #C8102E; color: #FFFFFF; padding: 11px 18px; border-radius: 4px; font-weight: 700; text-decoration: none;" style-hover="background: #A50D26; color: #FFFFFF; text-decoration: none;">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ heroFull }}" hint-placeholder-val="{{ true }}">
+    <section id="inicio" data-screen-label="Hero" style="position: relative; min-height: 640px; display: flex; align-items: flex-end; overflow: hidden; background: #1A1613;">
+      <img src="assets/fotos/hero-anhangabau.jpeg" alt="Centro de São Paulo visto do Vale do Anhangabaú" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,22,19,0.94) 0%, rgba(26,22,19,0.55) 45%, rgba(26,22,19,0.15) 100%);"></div>
+      <div style="position: relative; max-width: 1240px; width: 100%; margin: 0 auto; padding: 120px 24px 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 26px; color: #F6F3EE;">
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.28em; color: #E4DED5;">TURISMO RECEPTIVO · SÃO PAULO</div>
+        <h1 style="margin: 0; font-size: clamp(44px, 7vw, 96px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.92; max-width: 13ch; text-wrap: balance;">São Paulo conduzida por quem vive aqui</h1>
+        <p style="margin: 0; font-size: 19px; line-height: 1.55; max-width: 46ch; color: #E4DED5; text-wrap: pretty;">Walking tours pelo centro e pelos bairros, gastronomia paulistana, bate-volta para o interior e roteiros sob medida para o seu grupo.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#roteiros" style="background: #C8102E; color: #FFFFFF; padding: 16px 26px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none;" style-hover="background: #A50D26; color: #FFFFFF; text-decoration: none;">Ver roteiros</a>
+          <a href="https://wa.me/5511953403761" style="border: 1.5px solid rgba(246,243,238,0.7); color: #F6F3EE; padding: 15px 24px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none;" style-hover="background: #F6F3EE; color: #1A1613; text-decoration: none;">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ false }}">
+    <section id="inicio" data-screen-label="Hero" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 72px; display: flex; gap: 48px; flex-wrap: wrap; align-items: center;">
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 26px;">
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.28em; color: #8A8377;">TURISMO RECEPTIVO · SÃO PAULO</div>
+        <h1 style="margin: 0; font-size: clamp(44px, 6vw, 84px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.92; text-wrap: balance;">São Paulo conduzida por quem vive <span style="color: #C8102E;">aqui</span></h1>
+        <p style="margin: 0; font-size: 19px; line-height: 1.55; max-width: 46ch; color: #3D3830; text-wrap: pretty;">Walking tours pelo centro e pelos bairros, gastronomia paulistana, bate-volta para o interior e roteiros sob medida para o seu grupo.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#roteiros" style="background: #C8102E; color: #FFFFFF; padding: 16px 26px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none;" style-hover="background: #A50D26; color: #FFFFFF; text-decoration: none;">Ver roteiros</a>
+          <a href="https://wa.me/5511953403761" style="border: 1.5px solid #1A1613; color: #1A1613; padding: 15px 24px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none;" style-hover="background: #1A1613; color: #F6F3EE; text-decoration: none;">Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 5; max-height: 640px; border-radius: 6px; overflow: hidden;">
+        <img src="assets/fotos/hero-anhangabau.jpeg" alt="Centro de São Paulo visto do Vale do Anhangabaú" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </section>
+  </sc-if>
+
+  <section data-screen-label="Números" style="border-bottom: 1px solid #DCD6CB; background: #F6F3EE;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; gap: 20px 48px;">
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 99px; background: #C8102E;"></span>Guias com cadastro Cadastur</div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 99px; background: #C8102E;"></span>Grupos de até 15 pessoas</div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 99px; background: #C8102E;"></span>Roteiros em português, inglês e espanhol</div>
+    </div>
+  </section>
+
+  <section id="roteiros" data-screen-label="Roteiros" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: #8A8377;">ROTEIROS</div>
+        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98;">Escolha por onde começar</h2>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="4">
+          <button onClick="{{ tab.onClick }}" style="font-family: Archivo, sans-serif; font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 999px; cursor: pointer; border: 1.5px solid {{ tab.border }}; background: {{ tab.bg }}; color: {{ tab.fg }};">{{ tab.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+      <sc-for list="{{ tours }}" as="t" hint-placeholder-count="4">
+        <article style="background: #FFFFFF; border: 1px solid #E2DDD3; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #1A1613;">
+          <div style="aspect-ratio: 4 / 3; overflow: hidden; position: relative; background: {{ t.panel }};">
+            <sc-if value="{{ t.hasImg }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ t.img }}" alt="{{ t.alt }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </sc-if>
+            <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; inset: 0; padding: 22px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; color: {{ t.catFg }};">
+                <svg width="34" height="34" viewBox="0 0 100 100">
+                  <path d="M50 6 C31 6 16 21 16 40 C16 63 50 94 50 94 C50 94 84 63 84 40 C84 21 69 6 50 6 Z" fill="currentColor" opacity="0.9"></path>
+                  <path d="M33 44 L50 27 L67 44 L58 44 L50 36 L42 44 Z" fill="{{ t.panel }}"></path>
+                </svg>
+                <div style="font-size: 30px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.95;">{{ t.place }}</div>
+              </div>
+            </sc-if>
+            <span style="position: absolute; top: 14px; left: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; padding: 6px 10px; border-radius: 3px; background: {{ t.catColor }}; color: {{ t.catFg }};">{{ t.cat }}</span>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <h3 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;">{{ t.title }}</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #4A443D; flex: 1;">{{ t.desc }}</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #EDE8DF; padding-top: 14px; font-size: 13px; font-weight: 600; color: #6B655C;">
+              <span>{{ t.meta }}</span>
+              <a href="https://wa.me/5511953403761" style="color: #C8102E; font-weight: 700;">Reservar →</a>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ showReceptivo }}" hint-placeholder-val="{{ true }}">
+    <section id="sob-medida" data-screen-label="Sob medida" style="background: #1A1613; color: #F6F3EE;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; gap: 56px; flex-wrap: wrap; align-items: center;">
+        <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: #9A9186;">ROTEIROS SOB MEDIDA</div>
+          <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98;">A cidade no seu ritmo</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9C1B6; max-width: 48ch;">Para família, amigos, escolas, empresas e agências. Você conta o que quer ver, a gente desenha o percurso, cuida do transporte e escala o guia no idioma do grupo.</p>
+          <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #383129;">
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #383129; font-size: 16px;"><span style="font-weight: 700;">Transfer aeroporto e hotel</span><span style="color: #9A9186;">GRU · CGH</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #383129; font-size: 16px;"><span style="font-weight: 700;">Grupos e eventos corporativos</span><span style="color: #9A9186;">sob medida</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #383129; font-size: 16px;"><span style="font-weight: 700;">Agências e operadoras parceiras</span><span style="color: #9A9186;">B2B</span></div>
+          </div>
+        </div>
+        <div style="flex: 1 1 380px; min-width: 0;">
+          <div style="background: #F1EDE6; color: #1A1613; border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">Monte o seu roteiro</div>
+              <div style="font-size: 14px; color: #6B655C;">Marque o que interessa e mande para a gente pelo WhatsApp.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #8A8377;">INTERESSES</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <sc-for list="{{ interests }}" as="it" hint-placeholder-count="6">
+                  <button onClick="{{ it.onClick }}" style="font-family: Archivo, sans-serif; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px; cursor: pointer; border: 1.5px solid {{ it.border }}; background: {{ it.bg }}; color: {{ it.fg }};">{{ it.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #8A8377;">TAMANHO DO GRUPO</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <sc-for list="{{ sizes }}" as="sz" hint-placeholder-count="4">
+                  <button onClick="{{ sz.onClick }}" style="font-family: Archivo, sans-serif; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 4px; cursor: pointer; border: 1.5px solid {{ sz.border }}; background: {{ sz.bg }}; color: {{ sz.fg }};">{{ sz.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <a href="{{ customHref }}" style="background: #C8102E; color: #FFFFFF; padding: 16px 22px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none; text-align: center;" style-hover="background: #A50D26; color: #FFFFFF; text-decoration: none;">Pedir roteiro sob medida</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <section id="como-funciona" data-screen-label="Como funciona" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: #8A8377;">COMO FUNCIONA</div>
+      <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98;">Três passos até a saída</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div style="border-top: 3px solid #C8102E; padding-top: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 15px; font-weight: 800; color: #C8102E;">01</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">Escolha o roteiro</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A443D;">Veja datas e vagas e reserve pelo WhatsApp. A confirmação chega com o voucher.</p>
+      </div>
+      <div style="border-top: 3px solid #1A1613; padding-top: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 15px; font-weight: 800; color: #1A1613;">02</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">Encontre o guia</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A443D;">Na véspera você recebe o ponto de encontro com mapa e o nome de quem vai conduzir.</p>
+      </div>
+      <div style="border-top: 3px solid #8A8377; padding-top: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 15px; font-weight: 800; color: #6B655C;">03</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">Siga o percurso</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A443D;">Roteiro a pé, no ritmo do grupo, com paradas para foto, café e perguntas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Guia" style="background: #F6F3EE; border-top: 1px solid #DCD6CB; border-bottom: 1px solid #DCD6CB;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; gap: 56px; flex-wrap: wrap; align-items: center;">
+      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 3 / 2; border-radius: 6px; overflow: hidden;">
+        <img src="assets/fotos/centro-historico-grupo.jpeg" alt="Guia conduzindo grupo no centro de São Paulo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: #8A8377;">QUEM CONDUZ</div>
+        <p style="margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; text-wrap: pretty;">“O centro de São Paulo muda de rua para rua. Meu trabalho é mostrar essa passagem sem pressa.”</p>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-size: 17px; font-weight: 800;">Carol Pontes</div>
+          <div style="font-size: 14px; color: #6B655C;">Guia de turismo · Soul SP</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" data-screen-label="Contato" style="background: #C8102E; color: #FFFFFF;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 18px; flex: 1 1 420px; min-width: 0;">
+        <h2 style="margin: 0; font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.95;">Vamos marcar o encontro?</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 44ch;">Respondemos no WhatsApp em horário comercial. Para grupos e agências, envie data, número de pessoas e idioma.</p>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://wa.me/5511953403761" style="background: #FFFFFF; color: #C8102E; padding: 16px 26px; border-radius: 4px; font-size: 16px; font-weight: 800; text-decoration: none;" style-hover="background: #1A1613; color: #FFFFFF; text-decoration: none;">WhatsApp</a>
+        <a href="https://instagram.com/soulsp.tour" style="border: 1.5px solid #FFFFFF; color: #FFFFFF; padding: 15px 24px; border-radius: 4px; font-size: 16px; font-weight: 700; text-decoration: none;" style-hover="background: #FFFFFF; color: #C8102E; text-decoration: none;">@soulsp.tour</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Rodapé" style="background: #1A1613; color: #9A9186;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <svg width="28" height="28" viewBox="0 0 100 100">
+          <path d="M50 6 C31 6 16 21 16 40 C16 63 50 94 50 94 C50 94 84 63 84 40 C84 21 69 6 50 6 Z" fill="#F6F3EE"></path>
+          <path d="M33 44 L50 27 L67 44 L58 44 L50 36 L42 44 Z" fill="#1A1613"></path>
+          <path d="M33 60 L50 43 L67 60 L58 60 L50 52 L42 60 Z" fill="#1A1613" opacity="0.45"></path>
+        </svg>
+        <span style="font-size: 18px; font-weight: 900; letter-spacing: -0.035em; color: #F6F3EE; white-space: nowrap;">SOUL <span style="color: #FF3B30;">SP</span></span>
+      </div>
+      <span>Turismo receptivo em São Paulo · <a href="https://wa.me/5511953403761" style="color: #F6F3EE;">(11) 95340-3761</a></span>
+      <a href="https://instagram.com/soulsp.tour" style="color: #F6F3EE;">@soulsp.tour</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;foto inteira&quot;,&quot;dividido&quot;],&quot;default&quot;:&quot;foto inteira&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showReceptivo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Mostrar sob medida&quot;}}">
+const CAT = {
+  centro: { cat: 'CENTRO HISTÓRICO', catColor: '#2E5C8A', catFg: '#FFFFFF' },
+  gastro: { cat: 'GASTRONOMIA', catColor: '#D9A441', catFg: '#1A1613' },
+  bairros: { cat: 'BAIRROS E BATE-VOLTA', catColor: '#0F6B52', catFg: '#FFFFFF' },
+};
+const REAL = [
+  { id: 'centro', title: 'Walking tour Centro Histórico', desc: 'Caminhada pelas ruas que já foram o coração da economia do Brasil, com as histórias que quase ninguém conta.', meta: 'Sábado · 10h', img: 'assets/fotos/centro-historico-grupo.jpeg', alt: 'Grupo com guia no centro histórico' },
+  { id: 'centro', title: 'São Paulo em notas de café', desc: 'Como o café transformou São Paulo em metrópole. Lugares históricos, curiosidades e café especial no roteiro.', meta: 'Centro histórico · com a guia Carol', img: 'assets/fotos/altino-arantes.jpeg', alt: 'Edifício Altino Arantes visto de baixo' },
+  { id: 'gastro', title: 'Mercadão e o sanduíche de mortadela', desc: 'Cores, sabores e histórias do Mercado Municipal, com parada obrigatória no sanduíche mais paulistano que existe.', meta: 'Mercado Municipal', img: 'assets/fotos/mercadao-mortadela.png', alt: 'Sanduíche de mortadela no Mercadão' },
+  { id: 'bairros', title: 'Walking tour Bom Retiro', desc: 'O bairro das imigrações, das confecções e da culinária coreana e judaica, percorrido a pé.', meta: 'Sábado · 10h', place: 'Bom Retiro' },
+  { id: 'bairros', title: 'Day use Rota do Vinho', desc: 'Um dia em São Roque entre vinícolas, adegas e a estrada que dá nome ao roteiro.', meta: 'Domingo · bate-volta', place: 'São Roque' },
+];
+const TOURS = REAL.map(t => ({ ...t, ...CAT[t.id], panel: CAT[t.id].catColor, hasImg: !!t.img, noImg: !t.img }));
+const FILTERS = [
+  { id: 'todos', label: 'Todos' },
+  { id: 'centro', label: 'Centro histórico' },
+  { id: 'gastro', label: 'Gastronomia' },
+  { id: 'bairros', label: 'Bairros e bate-volta' },
+];
+
+const INTERESTS = ['Centro histórico', 'Arte de rua', 'Museus', 'Arquitetura', 'Gastronomia', 'Mercados e feiras', 'Futebol', 'Vida noturna'];
+const SIZES = ['1 a 4', '5 a 15', '16 a 40', 'Mais de 40'];
+const chip = (on) => ({ bg: on ? '#1A1613' : 'transparent', fg: on ? '#F6F3EE' : '#1A1613', border: on ? '#1A1613' : '#C9C3B6' });
+
+class Component extends DCLogic {
+  state = { filter: 'todos', picked: [], size: null };
+  renderVals() {
+    const f = this.state.filter;
+    const { picked, size } = this.state;
+    const msg = 'Olá! Quero um roteiro sob medida em São Paulo.' + (picked.length ? ' Interesses: ' + picked.join(', ') + '.' : '') + (size ? ' Grupo: ' + size + ' pessoas.' : '');
+    const custom = {
+      interests: INTERESTS.map(label => ({ label, ...chip(picked.includes(label)), onClick: () => this.setState(s => ({ picked: s.picked.includes(label) ? s.picked.filter(x => x !== label) : [...s.picked, label] })) })),
+      sizes: SIZES.map(label => ({ label, ...chip(size === label), onClick: () => this.setState(s => ({ size: s.size === label ? null : label })) })),
+      customHref: 'https://wa.me/5511953403761?text=' + encodeURIComponent(msg),
+    };
+    const hero = this.props.heroLayout ?? 'foto inteira';
+    return {
+      ...custom,
+      heroFull: hero === 'foto inteira',
+      heroSplit: hero === 'dividido',
+      showReceptivo: this.props.showReceptivo ?? true,
+      tabs: FILTERS.map(t => {
+        const on = t.id === f;
+        return { label: t.label, bg: on ? '#1A1613' : 'transparent', fg: on ? '#F6F3EE' : '#1A1613', border: on ? '#1A1613' : '#C9C3B6', onClick: () => this.setState({ filter: t.id }) };
+      }),
+      tours: f === 'todos' ? TOURS : TOURS.filter(t => t.id === f),
+    };
+  }
+}
+</script>
+</body>
+</html>
