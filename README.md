@@ -29,7 +29,7 @@ Configuração única, em **Settings → Secrets and variables → Actions → N
 Esses dados ficam no painel da Locaweb, em **Hospedagem → FTP**. Se a hospedagem for Windows, troque `remoteDir` para `web` no workflow.
 
 ### Domínio
-Se o domínio estiver registrado e com DNS na própria Locaweb, ele já aponta para a hospedagem ao ser vinculado ao plano. Se o DNS estiver em outro lugar, crie no provedor do domínio os registros indicados pela Locaweb no painel da hospedagem (registro `A` para o domínio e `CNAME` do `www`).
+O site está em https://soulsp.com.br (o `.htaccess` redireciona o `www` para o domínio sem `www`). Se o domínio estiver registrado e com DNS na própria Locaweb, ele já aponta para a hospedagem ao ser vinculado ao plano. Se o DNS estiver em outro lugar, crie no provedor do domínio os registros indicados pela Locaweb no painel da hospedagem (registro `A` para o domínio e `CNAME` do `www`).
 
 ## Editar conteúdo
 - Textos e roteiros: `public/index.html` (cada roteiro é um `<article class="card">`; `data-cat` define o filtro: `centro`, `gastro` ou `bairros`).

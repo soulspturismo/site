@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://soulsp.com.br/sitemap.xml
