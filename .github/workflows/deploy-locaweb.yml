@@ -13,11 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: FTP Deploy Locaweb
-        uses: locaweb/ftp-deploy@1.0.0
-        with:
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER }}
-          password: ${{ secrets.PASS }}
-          localDir: "public"
-          remoteDir: "public_html"
+      - name: Instalar lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # Envia a pasta public/ para public_html, substituindo cada arquivo alterado por inteiro.
+      # (A action locaweb/ftp-deploy usa "mirror --continue", que emenda arquivos que cresceram
+      # em vez de substituí-los e deixava o index.html desatualizado/corrompido.)
+      - name: Enviar arquivos por FTP
+        env:
+          FTP_HOST: ${{ secrets.HOST }}
+          FTP_USER: ${{ secrets.USER }}
+          FTP_PASS: ${{ secrets.PASS }}
+        run: |
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" -e "
+            set ftp:ssl-allow true;
+            set ssl:verify-certificate false;
+            set net:max-retries 3;
+            mirror --reverse --verbose --ignore-time --parallel=4 -x '^\.git' public public_html;
+            quit"
