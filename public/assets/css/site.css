@@ -186,3 +186,34 @@ h2 { font-size: clamp(34px, 4.4vw, 56px); font-weight: 900; letter-spacing: -0.0
 }
 .cookies button.aceitar { background: var(--carmim); border-color: var(--carmim); color: var(--branco); }
 .cookies button.aceitar:hover { background: var(--carmim-hover); border-color: var(--carmim-hover); }
+
+/* Formulário de contato */
+.contato-inner { align-items: flex-start; }
+.contato-texto .botoes { margin-top: 10px; }
+.contato .contato-email { font-size: 15px; }
+.contato a.contato-email, .contato-email a { color: var(--branco); text-decoration: underline; }
+.form-contato {
+  flex: 1 1 420px; min-width: 0; background: var(--papel); color: var(--grafite);
+  border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 16px;
+}
+.form-titulo { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.form-linha { display: flex; flex-wrap: wrap; gap: 16px; }
+.form-linha .form-campo { flex: 1 1 200px; min-width: 0; }
+.form-campo { display: flex; flex-direction: column; gap: 6px; }
+.form-campo span { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--eyebrow); }
+.form-campo em { font-style: normal; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.form-campo input, .form-campo textarea {
+  font: inherit; font-size: 16px; color: var(--grafite); background: var(--branco);
+  border: 1.5px solid var(--borda-pilula); border-radius: 4px; padding: 12px 14px; width: 100%;
+}
+.form-campo textarea { resize: vertical; min-height: 110px; }
+.form-campo input:focus, .form-campo textarea:focus { outline: none; border-color: var(--grafite); }
+.form-campo [aria-invalid="true"] { border-color: var(--carmim); }
+.form-isca { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-contato button { border: 0; cursor: pointer; font-family: inherit; }
+.form-contato button:disabled { opacity: .6; cursor: wait; }
+.contato .form-aviso { font-size: 13px; line-height: 1.5; max-width: none; color: var(--secundario); }
+.contato .form-status { font-size: 15px; font-weight: 700; max-width: none; }
+.form-status:empty { display: none; }
+.form-status.ok { color: var(--cat-bairros); }
+.form-status.erro { color: var(--carmim); }

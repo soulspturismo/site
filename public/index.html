@@ -32,8 +32,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/fotos/hero-anhangabau.webp" type="image/webp">
-<link rel="stylesheet" href="assets/css/site.css?v=4ba0627">
-<script src="assets/js/analytics.js?v=4ba0627"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=contato1">
+<script src="assets/js/analytics.js?v=contato1"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -395,11 +395,37 @@
       <div class="contato-texto">
         <h2>Vamos marcar o encontro?</h2>
         <p>Respondemos no WhatsApp em horário comercial. Para grupos e agências, envie data, número de pessoas e idioma.</p>
+        <div class="botoes">
+          <a href="https://wa.me/5511953403761" target="_blank" rel="noopener" class="btn btn-branco">WhatsApp</a>
+          <a href="https://instagram.com/soulsp.tour" target="_blank" rel="noopener" class="btn btn-contorno-branco">@soulsp.tour</a>
+        </div>
+        <p class="contato-email">Ou escreva para <a href="mailto:contato@soulsp.com.br">contato@soulsp.com.br</a></p>
       </div>
-      <div class="botoes">
-        <a href="https://wa.me/5511953403761" target="_blank" rel="noopener" class="btn btn-branco">WhatsApp</a>
-        <a href="https://instagram.com/soulsp.tour" target="_blank" rel="noopener" class="btn btn-contorno-branco">@soulsp.tour</a>
-      </div>
+      <form class="form-contato" id="form-contato" action="enviar-contato.php" method="post" novalidate>
+        <div class="form-titulo">Prefere e-mail? Mande sua mensagem</div>
+        <label class="form-campo">
+          <span>Nome</span>
+          <input type="text" name="nome" autocomplete="name" required maxlength="120">
+        </label>
+        <div class="form-linha">
+          <label class="form-campo">
+            <span>E-mail</span>
+            <input type="email" name="email" autocomplete="email" required maxlength="160">
+          </label>
+          <label class="form-campo">
+            <span>Telefone ou WhatsApp <em>(opcional)</em></span>
+            <input type="tel" name="telefone" autocomplete="tel" maxlength="40">
+          </label>
+        </div>
+        <label class="form-campo">
+          <span>Mensagem</span>
+          <textarea name="mensagem" rows="4" required maxlength="4000" placeholder="Data, número de pessoas, idioma e o que você gostaria de conhecer"></textarea>
+        </label>
+        <label class="form-isca" aria-hidden="true">Não preencha<input type="text" name="site" tabindex="-1" autocomplete="off"></label>
+        <button type="submit" class="btn btn-primario btn-bloco">Enviar mensagem</button>
+        <p class="form-aviso">Usamos seus dados só para responder ao seu contato.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -420,6 +446,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=4ba0627" defer></script>
+<script src="assets/js/site.js?v=contato1" defer></script>
 </body>
 </html>

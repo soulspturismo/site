@@ -67,3 +67,47 @@
 
   atualizarLink();
 })();
+
+// Formulário de contato por e-mail
+(function () {
+  var form = document.getElementById('form-contato');
+  if (!form) return;
+  var status = form.querySelector('.form-status');
+  var botao = form.querySelector('button[type="submit"]');
+
+  function mostrar(texto, tipo) {
+    status.textContent = texto;
+    status.className = 'form-status ' + tipo;
+  }
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('contato') === 'enviado') mostrar('Mensagem enviada! Respondemos em breve.', 'ok');
+  if (params.get('contato') === 'erro') mostrar('Não foi possível enviar. Confira os campos e tente de novo.', 'erro');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var invalido = null;
+    form.querySelectorAll('[required]').forEach(function (campo) {
+      var ok = campo.value.trim() !== '' && (campo.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campo.value.trim()));
+      campo.setAttribute('aria-invalid', String(!ok));
+      if (!ok && !invalido) invalido = campo;
+    });
+    if (invalido) {
+      mostrar('Preencha nome, um e-mail válido e a mensagem.', 'erro');
+      invalido.focus();
+      return;
+    }
+    botao.disabled = true;
+    mostrar('Enviando…', '');
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        mostrar(res.mensagem, res.ok ? 'ok' : 'erro');
+        if (res.ok) form.reset();
+      })
+      .catch(function () {
+        mostrar('Não foi possível enviar agora. Tente pelo WhatsApp ou escreva para contato@soulsp.com.br.', 'erro');
+      })
+      .then(function () { botao.disabled = false; });
+  });
+})();
