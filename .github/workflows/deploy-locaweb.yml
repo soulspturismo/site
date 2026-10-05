@@ -16,7 +16,7 @@ jobs:
       - name: Instalar lftp
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      # Envia a pasta public/ para public_html, substituindo cada arquivo alterado por inteiro.
+      # Envia a pasta public/ para public_html, substituindo por inteiro os arquivos mais novos que os do servidor.
       # (A action locaweb/ftp-deploy usa "mirror --continue", que emenda arquivos que cresceram
       # em vez de substituí-los e deixava o index.html desatualizado/corrompido.)
       - name: Enviar arquivos por FTP
@@ -29,5 +29,5 @@ jobs:
             set ftp:ssl-allow true;
             set ssl:verify-certificate false;
             set net:max-retries 3;
-            mirror --reverse --verbose --ignore-time --parallel=4 -x '^\.git' public public_html;
+            mirror --reverse --verbose --parallel=4 -x '^\.git' public public_html;
             quit"
