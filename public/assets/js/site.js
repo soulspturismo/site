@@ -15,39 +15,53 @@
     });
   });
 
-  // Sob medida: interesses (vários) e tamanho do grupo (um só)
-  var interesses = document.querySelectorAll('#interesses .pilula');
-  var tamanhos = document.querySelectorAll('#tamanhos .pilula');
+  // Sob medida: grupos de múltipla escolha e de escolha única
   var cta = document.getElementById('pedir-roteiro');
+  var multiplos = ['interesses', 'adicionais'];
+  var unicos = ['tamanhos', 'formatos', 'veiculos'];
+
+  function botoes(id) { return document.querySelectorAll('#' + id + ' .pilula'); }
+  function marcados(id) {
+    var lista = [];
+    botoes(id).forEach(function (b) {
+      if (b.getAttribute('aria-pressed') === 'true') lista.push(b.textContent.trim());
+    });
+    return lista;
+  }
 
   function atualizarLink() {
-    var escolhidos = [];
-    interesses.forEach(function (b) {
-      if (b.getAttribute('aria-pressed') === 'true') escolhidos.push(b.textContent.trim());
-    });
-    var tamanho = null;
-    tamanhos.forEach(function (b) {
-      if (b.getAttribute('aria-pressed') === 'true') tamanho = b.textContent.trim();
-    });
+    var interesses = marcados('interesses');
+    var tamanho = marcados('tamanhos')[0];
+    var formato = marcados('formatos')[0];
+    var veiculo = marcados('veiculos')[0];
+    var adicionais = marcados('adicionais');
     var msg = 'Olá! Quero um roteiro sob medida em São Paulo.'
-      + (escolhidos.length ? ' Interesses: ' + escolhidos.join(', ') + '.' : '')
-      + (tamanho ? ' Grupo: ' + tamanho + ' pessoas.' : '');
+      + (interesses.length ? ' Interesses: ' + interesses.join(', ') + '.' : '')
+      + (tamanho ? ' Grupo: ' + tamanho + ' pessoas.' : '')
+      + (formato ? ' Formato: ' + formato.toLowerCase() + '.' : '')
+      + (veiculo ? ' Transporte: ' + veiculo.toLowerCase() + '.' : '')
+      + (adicionais.length ? ' Itens adicionais: ' + adicionais.join(', ').toLowerCase() + '.' : '');
     cta.href = WHATSAPP + '?text=' + encodeURIComponent(msg);
   }
 
-  interesses.forEach(function (b) {
-    b.addEventListener('click', function () {
-      b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
-      atualizarLink();
+  multiplos.forEach(function (id) {
+    botoes(id).forEach(function (b) {
+      b.addEventListener('click', function () {
+        b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
+        atualizarLink();
+      });
     });
   });
 
-  tamanhos.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var ligar = b.getAttribute('aria-pressed') !== 'true';
-      tamanhos.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
-      b.setAttribute('aria-pressed', String(ligar));
-      atualizarLink();
+  unicos.forEach(function (id) {
+    var grupo = botoes(id);
+    grupo.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var ligar = b.getAttribute('aria-pressed') !== 'true';
+        grupo.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', String(ligar));
+        atualizarLink();
+      });
     });
   });
 
